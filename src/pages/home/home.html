@@ -1,0 +1,31 @@
+
+
+<ion-content padding>
+    <div>
+        <img class="img-circle" src="" (click) = "escolherFoto()" style="display: block; width: 20%; margin-left: auto; margin-right: auto;">
+      </div>
+      <h2 style="color:#000000;font-weight:400;text-align:center;">{{ student?.name }}</h2>
+      <div style="text-align:center;" class="show-list-numbers-and-dots">
+        <p style="color:#000000;">
+          <strong>{{ student?.period }}</strong> - {{ student?.degree }}</p>
+      </div>
+
+  <ion-list>
+    <ion-card *ngFor="let item of items | async">
+        <ion-card-header>
+          <span style="color: blue">{{ item.name }} Frequência -  {{ item.frequencia }}%</span>
+          <ion-icon style="float: right;" (click)="chat(item)" name="md-chatboxes"></ion-icon>
+        </ion-card-header>
+        <ion-card-content *ngFor = "let test of tests[item.$key] | async">
+          <h5><b>{{ test.nome }}:</b> <a *ngIf="test.grade>5" style="color: blue">{{ test.grade }}</a>
+              <a *ngIf="test.grade<5" style="color: red">{{ test.grade }}</a>
+          </h5>
+          <h5 *ngIf="test.comments">{{ test.comments }}</h5>
+        </ion-card-content>
+      </ion-card>
+  </ion-list>
+
+  <ion-fab botton right style="padding-top: 17px">
+      <button ion-fab color="secondary" (click)="signOut()"><ion-icon name="exit"></ion-icon></button>
+    </ion-fab>
+</ion-content>

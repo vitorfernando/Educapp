@@ -1,0 +1,37 @@
+    <ion-content scroll="false" class="login-content">
+
+      <ion-row class="logo-row">
+          <ion-col></ion-col>
+          <ion-col>
+            <font face="arial" size="10" bold>EducApp</font>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+
+    <div class="login-box">
+      <form #form="ngForm" novalidate>
+          <ion-row>
+              <ion-col>
+                <ion-list inset>
+
+                  <ion-item>
+                    <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
+                  </ion-item>
+
+                </ion-list>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="signup-col">
+                  <button ion-button class="submit-btn" full (click)="signIn()" [disabled]="!form.form.valid">Login</button>
+                  <button ion-button class="register-btn" block clear (click)="resetPassword()">Esqueceu sua senha?</button>
+                </ion-col>
+            </ion-row>
+      </form>
+    </div>
+  </ion-content>

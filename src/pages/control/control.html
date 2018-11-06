@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Controle de presença</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+        <ion-card *ngFor="let item of students | async">
+        <button ion-item icon-right (click) = "check(item)" id = "{{ item.$key }}">
+          <ion-card-content>
+              <h2>{{ item.$key }} - {{ item.name }}</h2>
+          </ion-card-content>
+        </button>
+        </ion-card>
+</ion-content>
+
+<ion-footer>
+      <button ion-button (click)="save()"  full>Salvar presença</button>
+</ion-footer>
+  

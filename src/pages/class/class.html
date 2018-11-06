@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista de Aulas</ion-title>
+    <ion-buttons start>
+        <button icon-only="" ion-button="" (click) = "addClass()"><span class="button-inner">
+            <ion-icon name="add" role="img" class="icon icon-ios" aria-label="add"></ion-icon>
+          </span><div class="button-effect"></div></button>
+          <button icon-only="" ion-button="" (click) = "grades()"><span class="button-inner">
+              <ion-icon name="md-document" role="img" class="icon icon-ios" aria-label="add"></ion-icon>
+            </span><div class="button-effect"></div></button>
+            <button icon-only="" ion-button="" (click) = "calendar()"><span class="button-inner">
+                <ion-icon name="calendar" role="img" class="icon icon-ios" aria-label="add"></ion-icon>
+              </span><div class="button-effect"></div></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+      <h5>Aulas</h5>
+        <ion-item-sliding *ngFor="let item of class | async">
+          <button ion-item (click) = "studentList(item)">
+              <h2>Aula de {{ item.assunto }}</h2>
+              <p>{{ item.date }}</p>
+          </button>
+
+        </ion-item-sliding>
+      </ion-list>
+      <ion-list>
+          <h5>Provas</h5>
+            <ion-item-sliding *ngFor="let test of tests | async">
+              <button ion-item (click) = "gradeList(test)">
+                  <h2>{{ test.nome }}</h2>
+                  <p>Peso: {{test.peso}}</p>
+              </button>
+
+            </ion-item-sliding>
+          </ion-list>
+</ion-content>

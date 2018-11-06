@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicionar Aula</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Nome Aula</ion-label>
+        <ion-input type = "text" required [(ngModel)]="className" name ="className"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Data</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button ion-button block color = "primary" (click) = "save()">Salvar</button>
+    </div>
+  </form>
+</ion-content>

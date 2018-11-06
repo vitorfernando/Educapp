@@ -1,0 +1,7 @@
+<ion-content padding>
+    <ion-tabs #mytabs selectedIndex="1" *ngIf = "showTab">
+      <ion-tab [root]="calendarRoot" tabTitle="calendar" tabIcon="calendar"></ion-tab>
+      <ion-tab [root]="homeRoot" tabTitle="home" tabIcon="home"></ion-tab>
+      <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="ios-text-outline"></ion-tab>
+    </ion-tabs>
+</ion-content>

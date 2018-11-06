@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-card *ngFor="let item of class | async">
+            <ion-card-content *ngFor="let sub of subjects[item.$key] | async">
+                <button ion-item (click) = "classList(item, sub)">
+                    <h2>{{ item.$key }} - {{ sub.name }}</h2>
+                </button>
+            </ion-card-content>
+          </ion-card>
+      </ion-list>
+    <ion-fab botton right>
+        <button ion-fab color="secondary" (click)="signOut()"><ion-icon name="exit"></ion-icon></button>
+      </ion-fab>
+</ion-content>

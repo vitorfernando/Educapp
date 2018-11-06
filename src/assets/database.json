@@ -1,0 +1,90 @@
+{
+    "subjects": {
+        "1": {
+            "name": "Matemática"
+        },
+        "2": {
+            "name": "Computação"
+        },
+        "3": {
+            "name": "Física"
+        }
+    },
+
+    "professors": {
+        "1": {
+            "name": "José",
+            "email": "jose@gmail.com"
+        },
+        "2": {
+            "name": "Thiago",
+            "email": "thiago@gmail.com"
+        }
+    },
+
+    "students": {
+        "620114": {
+            "name": "Gustavo Eda",
+            "email": "edapd12@gmail.com",
+            "birth": "02/03/1997"
+        },
+        "746044": {
+            "name": "Renata Praisler",
+            "email": "napraisler@gmail.com",
+            "birth": "23/01/1997"
+        }
+    },
+
+    "parents": {
+        "1":{
+            "cpf": "36312192881",
+            "name": "Márcio Eda",
+            "email": "marcioeda@gmail.com"        
+        },
+        "2": {
+            "cpf": "17736827842",
+            "name": "Walmiria Praisler",
+            "email": "walmiria@gmail.com"
+        }
+    },
+
+    "studentSubjects": {
+        "620114": {
+            "1": {
+                "name": "Matemática",
+                "grade": "6.8"
+            },
+            "2": {
+                "name": "Computação",
+                "grade": "8.5"
+            }
+        },
+        "746044": {
+            "3": {
+                "name": "Física",
+                "grade": "7.6"
+            }
+        }
+    },
+
+    "professorSubjects": {
+        "1": {
+            "2": "Computação"
+        },
+        "2": {
+            "1": "Matemática",
+            "3": "Física"
+        }
+    },
+
+    "studentParent": {
+        "620114": {
+            "1": "Márcio Eda"
+        },
+        "746044": {
+            "2": "Walmiria Praisler"
+        }
+    }
+
+
+}
