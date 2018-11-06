@@ -1,0 +1,19 @@
+page-calendar-view {
+
+    .content{
+        ion-row {
+            align-items: center;
+            text-align: center;
+            //background-image: url("assets/img/background.jpg");
+            width: 360px;
+            height: 160px;
+            background-size: 360px;
+            
+        }
+
+        .logo-row {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    }
+}
