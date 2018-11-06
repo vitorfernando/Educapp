@@ -1,0 +1,32 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-title>Notas</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    <ion-content padding>
+        <h1 style="text-align: center">{{ className }}</h1>
+        <ion-list>
+            <ion-item>
+              <ion-label>Nome </ion-label>
+              <ion-input type="text" name="testName" [(ngModel)]="testName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Peso </ion-label>
+                <ion-input type="text" name="peso" [(ngModel)]="peso"></ion-input>                
+              </ion-item>
+            <ion-item *ngFor="let item of students | async">
+              <ion-label stacked>{{ item.$key }} - {{ item.name }}</ion-label>
+              <ion-input type="text" name="grade" placeholder = "Nota" [(ngModel)]="grades[item.name]" #grade="ngModel"></ion-input>
+              <ion-input type="text" name="comments" placeholder = "Comentários" [(ngModel)]="comments[item.name]" ></ion-input>              
+            </ion-item>
+          </ion-list>
+    </ion-content>
+    
+    <ion-footer>
+          <button ion-button (click)="save()"  full>Salvar Notas</button>
+    </ion-footer>
+      
+    
