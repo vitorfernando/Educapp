@@ -1,8 +1,7 @@
 {
-  "name": "mind-school",
+  "name": "test2",
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular",
-  "pro_id": "40b8a8e2"
+  "type": "ionic-angular"
 }

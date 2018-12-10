@@ -19,11 +19,11 @@ export class CalendarPage {
   selectedDay = new Date();
   eventSource = [];
   today = this.getData(this.selectedDay);
-  items: FirebaseListObservable<any[]>; 
-  tests: FirebaseListObservable<any[]>; 
-  student: any; 
+  items: FirebaseListObservable<any[]>;
+  tests: FirebaseListObservable<any[]>;
+  student: any;
 
-  calendar = { 
+  calendar = {
     mode: 'month',
     currentDate: this.selectedDay,
     locale: 'pt-BR'
@@ -40,15 +40,15 @@ export class CalendarPage {
     var user = this.authProvider.getUser();
     const studentRef = this.studentProvider.getByEmail(user.email);
     studentRef.on('child_added', snap => {
-      this.student = snap.val(); 
+      this.student = snap.val();
       var path = '/event/'+ this.student.class;
       var ref = firebase.database().ref(path);
-      
-      let events = this.eventSource; 
+
+      let events = this.eventSource;
       ref.orderByKey().on('child_added', snapshot => {
         time = snapshot.val();
-        
-        if (time){  
+
+        if (time){
           events.push({
             title: time.name,
             startTime: new Date(time.date + time.start + ':00'),
@@ -56,11 +56,11 @@ export class CalendarPage {
             allDay: false
           });
         }
-      }); 
+      });
 
           firebase.database().ref('event/all/').orderByKey().on('child_added', shot => {
             time = shot.val();
-            if (time){  
+            if (time){
               events.push({
                 title: time.name,
                 startTime: new Date(time.date + time.start + ':00'),
@@ -69,24 +69,24 @@ export class CalendarPage {
               });
             }
           });
-  
+
           this.eventSource = [];
           setTimeout(() => {
             this.eventSource = events;
           }, 1000);
         });
-    
+
     const parentRef = this.studentProvider.getByParentEmail(user.email);
     parentRef.on('child_added', snap => {
       this.student = snap.val();
       var path = '/event/'+ this.student.class;
       var ref = firebase.database().ref(path);
-      
-      let events = this.eventSource; 
+
+      let events = this.eventSource;
       ref.orderByKey().on('child_added', snapshot => {
         time = snapshot.val();
-        
-        if (time){  
+
+        if (time){
           events.push({
             title: time.name,
             startTime: new Date(time.date + time.start + ':00'),
@@ -94,11 +94,11 @@ export class CalendarPage {
             allDay: false
           });
         }
-      }); 
+      });
 
           firebase.database().ref('event/all/').orderByKey().on('child_added', shot => {
             time = shot.val();
-            if (time){  
+            if (time){
               events.push({
                 title: time.name,
                 startTime: new Date(time.date + time.start + ':00'),
@@ -107,7 +107,7 @@ export class CalendarPage {
               });
             }
           });
-  
+
           this.eventSource = [];
           setTimeout(() => {
             this.eventSource = events;
@@ -123,7 +123,7 @@ export class CalendarPage {
     else
       aux += selectedDate.getMonth() + 1 + '';
 
-    aux += '-';  
+    aux += '-';
       if (selectedDate.getDate() < 10)
       aux += '0' + selectedDate.getDate();
     else
@@ -137,7 +137,7 @@ export class CalendarPage {
     var user = this.authProvider.getUser();
     const studentRef = this.studentProvider.getByEmail(user.email);
     studentRef.on('child_added', snap => {
-      this.student = snap.val(); 
+      this.student = snap.val();
 
       var path = '/classSubject/'+ this.student.class + '/' + date + '/';
       this.items = this.db.list(path);
@@ -149,7 +149,7 @@ export class CalendarPage {
     var user = this.authProvider.getUser();
     const studentRef = this.studentProvider.getByEmail(user.email);
     studentRef.on('child_added', snap => {
-      this.student = snap.val(); 
+      this.student = snap.val();
 
       var path = '/event/'+ this.student.class;
 
@@ -167,9 +167,9 @@ export class CalendarPage {
   }
 
   onTimeSelected(ev){
-    if (ev.selectedTime.getDate() != this.selectedDay.getDate()){
-      this.navCtrl.setRoot(CalendarViewPage, {date: ev.selectedTime});
-    }
+  //  if (ev.selectedTime.getDate() != this.selectedDay.getDate()){
+      //this.navCtrl.setRoot(CalendarViewPage, {date: ev.selectedTime});
+    //}
       // {day: ev.selectedTime.getDate(), mounth: ev.ev.selectedTime.getMounth()}
       //this.selectedDay = ev.selectedTime;
       //this.today = this.getData(this.selectedDay);
@@ -182,7 +182,7 @@ export class CalendarPage {
     //this.navCtrl.setRoot(CalendarViewPage, {day: event.selectedDate(), mounth: event.selectedMounth()});
     /*let start = event.startTime;
     let end = event.startEnd;
-    
+
     let alert = this.alertCtrl.create({
       title: '' + event.title,
       subTitle: 'From: ' + start + '<br>To: '+ end,

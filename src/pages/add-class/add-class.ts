@@ -9,10 +9,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class AddClassPage {
   className: string;
-  date: string = new Date().toISOString();  
+  date: string = new Date().toISOString();
   professorID: any;
   subjectID: any;
   classID: any;
+  comment: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {
     this.className = '';
@@ -23,6 +24,7 @@ export class AddClassPage {
     if (this.navParams.data.class){
       this.className = this.navParams.data.class.assunto;
       this.date = this.navParams.data.class.date;
+      this.comment = this.navParams.data.class.comment;
     }
 
     if (this.navParams.data.classID){
@@ -36,7 +38,8 @@ export class AddClassPage {
     var items = this.db.list('professorClass/' + this.professorID + '/' + this.classID + '/' + this.subjectID);
     items.push({
       'assunto': this.className,
-      'date': this.date
+      'date': this.date,
+      'comentarios': this.comment
     });
     this.navCtrl.pop();
   }

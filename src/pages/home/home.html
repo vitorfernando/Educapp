@@ -2,7 +2,7 @@
 
 <ion-content padding>
     <div>
-        <img class="img-circle" src="" (click) = "escolherFoto()" style="display: block; width: 20%; margin-left: auto; margin-right: auto;">
+        <img class="img-circle" src="" style="display: block; width: 20%; margin-left: auto; margin-right: auto;">
       </div>
       <h2 style="color:#000000;font-weight:400;text-align:center;">{{ student?.name }}</h2>
       <div style="text-align:center;" class="show-list-numbers-and-dots">
@@ -24,6 +24,10 @@
         </ion-card-content>
       </ion-card>
   </ion-list>
+
+  <ion-fab botton left style="padding-top: 17px">
+      <button ion-fab color="secondary" (click)="back()"><ion-icon name="arrow-back"></ion-icon></button>
+    </ion-fab>
 
   <ion-fab botton right style="padding-top: 17px">
       <button ion-fab color="secondary" (click)="signOut()"><ion-icon name="exit"></ion-icon></button>

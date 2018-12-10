@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicionar Evento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Nome Evento</ion-label>
+        <ion-input type = "text" required [(ngModel)]="eventName" name ="eventName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Data</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Inicio</ion-label>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="start" name="start"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Fim</ion-label>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="end" name="end"></ion-datetime>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button ion-button block color = "primary" (click) = "save()">Salvar</button>
+    </div>
+  </form>
+</ion-content>

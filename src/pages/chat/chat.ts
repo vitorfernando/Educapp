@@ -14,16 +14,17 @@ export class ChatPage {
   parent: string;
   name: string;
   ra: any;
-  codProf: any;
+  codProf = "";
+  isParent = 1;
 
   constructor(private db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
     this.ra = '';
     this.codProf = '';
 
     if (this.navParams.data.studentName){
-      this.parent = this.navParams.data.studentName.parent;
+      this.parent = this.navParams.data.studentName.parentName;
       this.name = this.navParams.data.studentName.name;
-      this.ra = this.navParams.data.studentName.ra;
+      this.ra = this.navParams.data.studentName.parentName;
     }
 
     if (this.navParams.data.item){
@@ -31,9 +32,10 @@ export class ChatPage {
     }
 
     if (this.navParams.data.itemStudent){
-      this.parent = this.navParams.data.professorName;
+      this.parent = this.navParams.data.professorName.professorName;
       this.ra = this.navParams.data.itemStudent.$key;
       this.codProf = this.navParams.data.professorID;
+      this.isParent = 0;
     }
     this.messages = db.list('message/' + this.codProf + '/' + this.ra);
   }
@@ -41,6 +43,7 @@ export class ChatPage {
   enviar(){
     var date = new Date();
     let m = {
+      parent: this.isParent,
       name: this.parent,
       text: this.message,
       hour: date.getHours() + ':' + date.getMinutes()
@@ -52,7 +55,9 @@ export class ChatPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
+    var myDiv = document.getElementById("divMessage");
+    myDiv.scrollTop = myDiv.scrollHeight;
+
   }
 
 }

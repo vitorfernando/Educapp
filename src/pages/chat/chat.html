@@ -1,23 +1,39 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>Chat</ion-title>
-    </ion-navbar>
-  </ion-header>
-  <ion-content padding>
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Mensagem</ion-label>
-        <ion-input type="text" [(ngModel)]="message"></ion-input>
-      </ion-item>
-      <ion-item>
-        <button ion-button (click)="enviar()">Enviar</button>
-      </ion-item>
-      <ion-item *ngFor="let item of messages | async">
-        <h2>{{ item.name }}</h2>
-        <p>{{ item.text}}</p>
-        <ion-note item-right>
-          {{ item.hour }}
-        </ion-note>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+
+  <ion-navbar>
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="message-wrap" id="divMessage">
+    <div *ngFor="let msg of messages | async"
+         class="message"
+         [class.right]="msg.parent === 1"
+         [class.left]="msg.parent === 0">
+      <div class="msg-detail">
+        <div class="msg-info">
+          <p>
+            {{msg.name}}&nbsp;&nbsp;&nbsp;{{msg.hour}}</p>
+        </div>
+        <div class="msg-content">
+          <span class="triangle"></span>
+          <p class="line-breaker ">{{msg.text}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <div class="input-wrap">
+    <ion-input type="text" [(ngModel)]="message"></ion-input>
+    <button ion-button clear icon-only item-right (click)="enviar()">
+      <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

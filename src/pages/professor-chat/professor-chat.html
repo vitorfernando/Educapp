@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item-sliding *ngFor="let student of students | async">
+          <button ion-item (click) = "chat(student)">
+              <h2>{{ student.$key }}</h2>
+          </button>
+        </ion-item-sliding>
+      </ion-list>
+</ion-content>

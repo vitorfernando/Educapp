@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, LOCALE_ID } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { Push } from '@ionic-native/push';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -29,6 +28,7 @@ import { GradesPage } from "../pages/grades/grades";
 import { AddClassPage } from "../pages/add-class/add-class";
 import { ProfessorChatPage } from "../pages/professor-chat/professor-chat";
 import { StudentChatPage } from "../pages/student-chat/student-chat";
+import { StudanteControllerPage } from "../pages/studante-controller/studante-controller";
 import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
 import { AddCalendarPage } from '../pages/add-calendar/add-calendar';
 
@@ -68,7 +68,8 @@ const firebaseConfig = {
     ProfessorChatPage,
     StudentChatPage,
     CalendarViewPage,
-    AddCalendarPage
+    AddCalendarPage,
+    StudanteControllerPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +100,8 @@ const firebaseConfig = {
     ProfessorChatPage,
     StudentChatPage,
     CalendarViewPage,
-    AddCalendarPage
+    AddCalendarPage,
+    StudanteControllerPage
   ],
   providers: [
     StatusBar,
@@ -111,8 +113,7 @@ const firebaseConfig = {
     StudentProvider,
     ImagePicker,
     CalendarProvider,
-    ProfessorProvider,
-    Push
+    ProfessorProvider
   ]
 })
 export class AppModule {}
