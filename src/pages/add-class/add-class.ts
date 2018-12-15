@@ -9,7 +9,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class AddClassPage {
   className: string;
-  date: string = new Date().toISOString();
+  date: string = new Date().toISOString().split('T')[0];
   professorID: any;
   subjectID: any;
   classID: any;

@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule, LOCALE_ID } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage'
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -31,6 +32,7 @@ import { StudentChatPage } from "../pages/student-chat/student-chat";
 import { StudanteControllerPage } from "../pages/studante-controller/studante-controller";
 import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
 import { AddCalendarPage } from '../pages/add-calendar/add-calendar';
+import { ClassControllerPage } from '../pages/class-controller/class-controller'; 
 
 import { SubjectProvider } from '../providers/subject/subject';
 import { AuthProvider } from '../providers/auth/auth';
@@ -69,11 +71,13 @@ const firebaseConfig = {
     StudentChatPage,
     CalendarViewPage,
     AddCalendarPage,
-    StudanteControllerPage
+    StudanteControllerPage,
+    ClassControllerPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
@@ -101,7 +105,8 @@ const firebaseConfig = {
     StudentChatPage,
     CalendarViewPage,
     AddCalendarPage,
-    StudanteControllerPage
+    StudanteControllerPage,
+    ClassControllerPage
   ],
   providers: [
     StatusBar,

@@ -1,4 +1,4 @@
-
+﻿
 
 <ion-content padding>
     <div>
@@ -13,7 +13,7 @@
   <ion-list>
     <ion-card *ngFor="let item of items | async">
         <ion-card-header>
-          <span style="color: blue">{{ item.name }} Frequência -  {{ item.frequencia }}%</span>
+          <span style="color: blue">{{ item.name }}</span>
           <ion-icon style="float: right;" (click)="chat(item)" name="md-chatboxes"></ion-icon>
         </ion-card-header>
         <ion-card-content *ngFor = "let test of tests[item.$key] | async">

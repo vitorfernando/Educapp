@@ -7,6 +7,7 @@ import { CalendarViewPage } from "../calendar-view/calendar-view";
 import { StudentChatPage } from "../student-chat/student-chat";
 import { StudanteControllerPage } from "../studante-controller/studante-controller";
 import { SigninPage } from "../signin/signin";
+import { ClassControllerPage } from '../class-controller/class-controller';
 
 @IonicPage()
 @Component({

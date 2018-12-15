@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from "../../providers/auth/auth";
 import { ChatPage } from "../../pages/chat/chat";
 import { StudentProvider } from "../../providers/student/student";
+import { ClassControllerPage } from '../class-controller/class-controller';
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 
 @IonicPage()
@@ -43,8 +44,8 @@ export class StudentChatPage {
   });
 }
 
-  chat(item: any){
-    this.navCtrl.push(ChatPage, {item: item, studentName: this.studentName});
+  class(item: any){
+    this.navCtrl.push(ClassControllerPage, {item: item, studentName: this.studentName});
   }
 
   ionViewDidLoad() {

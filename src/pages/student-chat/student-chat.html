@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Chat</ion-title>
+    <ion-title>Frequência</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,7 +10,7 @@
 <ion-content padding>
     <ion-list>
         <ion-item-sliding *ngFor="let subject of subjects | async">
-          <button ion-item (click) = "chat(subject)">
+          <button ion-item (click) = "class(subject)">
               <h2>{{ subject.name }}</h2>
           </button>
         </ion-item-sliding>

@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Controle de Frequência</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Aulas</h2>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of class | async">
+      <button ion-item>
+          <h2>Aula de {{ item.name }}</h2>
+          <p>{{ item.date }}</p>
+          <p>{{ item.comment }}</p>
+      </button>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

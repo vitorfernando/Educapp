@@ -12,6 +12,9 @@ export class ControlPage {
   classID: any;
   profID: any;
   subjectID: any;
+  className: any;
+  classComment: any;
+  classDate: any;
   aula: any;
   students: FirebaseListObservable<any[]>;
   showCheck = [];
@@ -27,6 +30,12 @@ export class ControlPage {
       this.profID = this.navParams.data.professorID;
       this.classID = this.navParams.data.classID;
       this.subjectID = this.navParams.data.subjectID;
+    }
+
+    if (this.navParams.data.class){
+      this.className = this.navParams.data.class.assunto;
+      this.classComment = this.navParams.data.class.comentarios;
+      this.classDate = this.navParams.data.class.date;
     }
 
     this.students = this.db.list('class/' + this.classID);
@@ -60,9 +69,17 @@ export class ControlPage {
     var aux = this.db.list('professorClass/' + this.profID + '/'  + this.classID + '/' + this.subjectID + '/' + this.aula + '/presentes/');
     
     for (let i of this.showCheck){
-      var path = 'professorClass/' + this.profID + '/'  + this.classID + '/' + this.subjectID + '/' + this.aula + '/presentes/' + i.ra;
+      var pathProfClass = 'professorClass/' + this.profID + '/'  + this.classID + '/' + this.subjectID + '/' + this.aula + '/presentes/' + i.ra;
+      var path = 'studentClass/' + i.ra + '/' + this.subjectID + '/' + this.aula;
+
       if (i.check){
         firebase.database().ref(path).set({
+          name: this.className,
+          date: this.classDate,
+          comment: this.classComment
+        });
+
+        firebase.database().ref(pathProfClass).set({
           name: i.name
         });
       }else{
